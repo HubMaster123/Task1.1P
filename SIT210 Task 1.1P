@@ -25,14 +25,15 @@
 const int buttonPin = 2;     // the number of the pushbutton pin
 const int ledPin = LED_BUILTIN; // the number of the LED pin
 
-// Morse code for 'L', 'i', 'a', 'm'
-const int morseCode[][12] = {
-  {HIGH, LOW, HIGH, LOW, HIGH, HIGH, LOW, HIGH},       // Morse code for 'l' (. _ . .)
-  {HIGH, HIGH, LOW, LOW, HIGH, HIGH, LOW, HIGH},       // Morse code for 'i' (_ . . .)
-  {LOW, HIGH, LOW, HIGH, HIGH, HIGH, HIGH, LOW, HIGH}, // Morse code for 'a' (._)
-  {HIGH, HIGH, LOW, LOW, HIGH, LOW, HIGH, HIGH, LOW}   // Morse code for 'm' (_ _)
+//Morse Code for Liam
+const int morseCode[][5] = {
+  {HIGH, LOW, HIGH, HIGH, LOW}, // Morse code for 'L' (. _ . .)
+  {HIGH, HIGH, LOW, LOW, HIGH}, // Morse code for 'i' (. .)
+  {HIGH, LOW, HIGH, LOW, LOW},  // Morse code for 'a' (._)
+  {LOW, LOW, HIGH, HIGH, LOW}   // Morse code for 'm' (_ _)
 };
 
+//Method to perform dots. 
 void dot() 
 {
   digitalWrite(ledPin, HIGH);
@@ -41,6 +42,7 @@ void dot()
   delay(1000); // Pause between dots and dashes
 }
 
+//Methods fo perform dashes. 
 void dash() 
 {
   digitalWrite(ledPin, HIGH);
@@ -48,13 +50,14 @@ void dash()
   digitalWrite(ledPin, LOW);
   delay(1000); // Pause between dots and dashes
 }
-
+//Methods to set up the arduino. 
 void setup() 
 {
   pinMode(buttonPin, INPUT);
   pinMode(ledPin, OUTPUT);
 }
 
+//Loop to print out Liam in Morse Code. 
 void loop() 
 {
   int buttonState = digitalRead(buttonPin);
@@ -62,7 +65,7 @@ void loop()
   // If the button is pressed
   if (buttonState == HIGH) 
   {
-    // Blink "William" in Morse code
+    // Blink "Liam" in Morse code
     for (int i = 0; i < 7; i++) 
     {
       for (int j = 0; j < 8; j++) 
@@ -76,7 +79,8 @@ void loop()
           dot();
         }
       }
-      delay(400); // Pause between characters
+      //Pause between characters
+      delay(400);
     }
   }
 }
