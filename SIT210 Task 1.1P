@@ -50,6 +50,7 @@ void dash()
   digitalWrite(ledPin, LOW);
   delay(1000); // Pause between dots and dashes
 }
+
 //Methods to set up the arduino. 
 void setup() 
 {
@@ -62,10 +63,10 @@ void loop()
 {
   int buttonState = digitalRead(buttonPin);
 
-  // If the button is pressed
+  //If the button is pressed
   if (buttonState == HIGH) 
   {
-    // Blink "Liam" in Morse code
+    //Blink "Liam" in Morse code
     for (int i = 0; i < 7; i++) 
     {
       for (int j = 0; j < 8; j++) 
